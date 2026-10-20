@@ -21,6 +21,11 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, .candle, .loot-chest, .nav-card, .interactive-tile {
+    touch-action: manipulation;
 }
 
 body {
@@ -1276,7 +1281,7 @@ body {
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (TABLETS & CELULARES)
    ========================================== */
 @media (max-width: 980px) {
     .menu-nav {
@@ -1285,18 +1290,189 @@ body {
 }
 
 @media (max-width: 640px) {
-    .menu-nav {
-        grid-template-columns: repeat(2, 1fr);
+    .boot-screen {
+        padding: 12px;
     }
-    .counter-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .boot-container {
+        padding: 26px 18px;
+        border-radius: 18px;
     }
-    .panel-card, .hero-banner {
-        padding: 22px 18px;
+    .terminal-box {
+        font-size: 0.88rem;
+        padding: 12px 14px;
+    }
+    .cyber-btn {
+        font-size: 0.88rem;
+        padding: 14px 16px;
+    }
+
+    .achievement-toast {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        padding: 10px 14px;
+        gap: 10px;
+    }
+    .achievement-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.35rem;
+    }
+    .achievement-info h4 {
+        font-size: 0.98rem;
+    }
+
+    .main-hub {
+        padding: 12px 12px 40px;
     }
     .hud-header {
         flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        gap: 12px;
+    }
+    .player-profile {
+        width: 100%;
+    }
+    .player-details {
+        flex: 1;
+        min-width: 0;
+    }
+    .player-name-row {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .player-name-row h2 {
+        font-size: 1.15rem;
+    }
+    .xp-bar-container {
+        width: 100%;
+        max-width: 100%;
+    }
+    .hud-controls {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    .hud-action-btn {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .menu-nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+    .nav-card {
+        padding: 10px 8px;
+        gap: 8px;
+        border-radius: 12px;
+    }
+    .nav-icon {
+        font-size: 1.3rem;
+    }
+    .nav-title {
+        font-size: 0.66rem;
+    }
+    .nav-desc {
+        font-size: 0.65rem;
+    }
+
+    .panel-card, .hero-banner {
+        padding: 20px 14px;
+        border-radius: 18px;
+    }
+    .hero-title {
+        font-size: 1.55rem;
+    }
+    .hero-lead {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    .quick-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .letter-header, .stats-header, .arcade-header {
+        flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+    }
+    .letter-header h2, .stats-header h2, .arcade-header h2 {
+        font-size: 1.2rem;
+    }
+    .typewriter-container {
+        padding: 16px;
+        font-size: 0.98rem;
+        min-height: 200px;
+    }
+    .stat-label {
+        font-size: 0.96rem;
+    }
+
+    /* Pastel de 14 velas en una sola fila limpia en celular */
+    .cake-stage {
+        padding: 36px 4px 12px;
+    }
+    .candles-row {
+        gap: 4px;
+        flex-wrap: nowrap;
+        width: 92%;
+        justify-content: space-between;
+    }
+    .candle {
+        width: 12px;
+        height: 44px;
+    }
+    .candle-flame {
+        width: 10px;
+        height: 18px;
+        top: -22px;
+    }
+    .layer-top {
+        height: 58px;
+    }
+    .layer-bottom {
+        height: 62px;
+    }
+
+    /* Arcade adaptable en pantallas verticales */
+    .canvas-wrapper {
+        min-height: 240px;
+    }
+    #arcade-canvas {
+        min-height: 240px;
+        object-fit: cover;
+    }
+    .arcade-overlay h3 {
+        font-size: 1.05rem;
+    }
+    .arcade-overlay p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    /* Cofre secreto en celular */
+    .loot-chest {
+        width: 155px;
+        height: 155px;
+    }
+    .chest-emoji {
+        font-size: 3.8rem;
+    }
+    .reward-reveal {
+        padding: 18px 14px;
+    }
+    .reward-text {
+        font-size: 1rem;
     }
 }
 

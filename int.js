@@ -562,13 +562,16 @@ arcadeCanvas.addEventListener("mousemove", (e) => {
     playerX = Math.max(0, Math.min(arcadeCanvas.width - playerWidth, mouseX - playerWidth / 2));
 });
 
-arcadeCanvas.addEventListener("touchmove", (e) => {
+function handleTouch(e) {
     e.preventDefault();
     const rect = arcadeCanvas.getBoundingClientRect();
     const scaleX = arcadeCanvas.width / rect.width;
     const touchX = (e.touches[0].clientX - rect.left) * scaleX;
     playerX = Math.max(0, Math.min(arcadeCanvas.width - playerWidth, touchX - playerWidth / 2));
-}, { passive: false });
+}
+
+arcadeCanvas.addEventListener("touchstart", handleTouch, { passive: false });
+arcadeCanvas.addEventListener("touchmove", handleTouch, { passive: false });
 
 function spawnItem() {
     if (!gameRunning) return;
