@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ NIVEL 14 DESBLOQUEADO | Feliz Cumpleaños Hermano ⚡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+    <!-- Canvas de fondo para partículas, matriz estelar y fuegos artificiales -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Notificación estilo Logro Desbloqueado (Xbox / PlayStation / Steam) -->
+    <div id="achievement-toast" class="achievement-toast hidden">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-info">
+            <span class="achievement-label">LOGRO DESBLOQUEADO</span>
+            <h4 id="achievement-title">Nivel 14 Alcanzado</h4>
+        </div>
+    </div>
+
+    <!-- PANTALLA 1: SECUENCIA DE ARRANQUE (BOOT SCREEN) -->
+    <section id="boot-screen" class="boot-screen">
+        <div class="cyber-grid"></div>
+        <div class="boot-container">
+            <div class="scanner-line"></div>
+            <div class="status-badge">SISTEMA DE CUMPLEAÑOS v14.0</div>
+            <h1 class="glitch-title" data-text="ACCESO NIVEL 14">ACCESO NIVEL 14</h1>
+            <p class="boot-subtitle">Detectando al mejor hermano menor del mundo...</p>
+            
+            <div class="terminal-box" id="terminal-logs">
+                <p>> Cargando perfil de Crack del Fútbol & Pro Gamer... <span class="ok">[OK]</span></p>
+                <p>> Subiendo media global (OVR): Nivel 13 ➔ 14... <span class="ok">[OK]</span></p>
+                <p>> Preparando sorpresa de tu hermano mayor... <span class="ok">[LISTO]</span></p>
+            </div>
+
+            <div class="name-setup">
+                <label for="brother-name-input">NOMBRE DEL JUGADOR (HERMANO):</label>
+                <input type="text" id="brother-name-input" placeholder="Escribe su nombre o apodo..." maxlength="22" value="JUAN">
+            </div>
+
+            <button id="start-btn" class="cyber-btn pulse-btn">
+                <span class="btn-glow"></span>
+                <span class="btn-text">⚡ INICIAR EXPERIENCIA NIVEL 14 ⚡</span>
+            </button>
+            <p class="audio-hint">🔊 Activa el volumen para efectos de sonido y música</p>
+        </div>
+    </section>
+
+    <!-- PANTALLA 2: MENÚ INTERACTIVO PRINCIPAL (HUD) -->
+    <main id="main-hub" class="main-hub hidden">
+        <!-- Barra Superior HUD -->
+        <header class="hud-header">
+            <div class="player-profile">
+                <div class="avatar-frame">
+                    <span class="lvl-num">14</span>
+                </div>
+                <div class="player-details">
+                    <div class="player-name-row">
+                        <h2 id="display-name">JUAN</h2>
+                        <span class="rank-badge">⚽ CRACK & PRO GAMER 🎮</span>
+                    </div>
+                    <div class="xp-bar-container">
+                        <div class="xp-bar-fill" id="xp-bar-fill"></div>
+                        <span class="xp-text" id="xp-text">XP: 14,000 / 14,000 (NIVEL 14)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hud-controls">
+                <button id="music-btn" class="hud-action-btn" title="Música Cumpleaños Synth">
+                    🎵 Música: OFF
+                </button>
+                <button id="sfx-btn" class="hud-action-btn active" title="Efectos de Sonido">
+                    🔊 SFX: ON
+                </button>
+                <button id="fireworks-btn" class="hud-action-btn special" title="Lanzar Fuegos Artificiales">
+                    🎆 ¡Celebrar!
+                </button>
+            </div>
+        </header>
+
+        <!-- Navegación del Menú Interactivo -->
+        <nav class="menu-nav" aria-label="Menú de Cumpleaños">
+            <button class="nav-card active" data-target="tab-home">
+                <span class="nav-icon">🏠</span>
+                <div class="nav-text">
+                    <span class="nav-title">CENTRO DE MANDO</span>
+                    <span class="nav-desc">Panel Principal</span>
+                </div>
+            </button>
+            <button class="nav-card" data-target="tab-letter">
+                <span class="nav-icon">📜</span>
+                <div class="nav-text">
+                    <span class="nav-title">MENSAJE DE HERMANO</span>
+                    <span class="nav-desc">Archivo Confidencial</span>
+                </div>
+            </button>
+            <button class="nav-card" data-target="tab-stats">
+                <span class="nav-icon">📊</span>
+                <div class="nav-text">
+                    <span class="nav-title">STATS NIVEL 14</span>
+                    <span class="nav-desc">Habilidades & Poder</span>
+                </div>
+            </button>
+            <button class="nav-card" data-target="tab-cake">
+                <span class="nav-icon">🎂</span>
+                <div class="nav-text">
+                    <span class="nav-title">PASTEL INTERACTIVO</span>
+                    <span class="nav-desc">14 Velas por Soplar</span>
+                </div>
+            </button>
+            <button class="nav-card" data-target="tab-arcade">
+                <span class="nav-icon">🕹️</span>
+                <div class="nav-text">
+                    <span class="nav-title">ZONA ARCADE</span>
+                    <span class="nav-desc">Mini-Juego Nivel 14</span>
+                </div>
+            </button>
+            <button class="nav-card" data-target="tab-vault">
+                <span class="nav-icon">🎁</span>
+                <div class="nav-text">
+                    <span class="nav-title">COFRE SECRETO</span>
+                    <span class="nav-desc">Recompensa Especial</span>
+                </div>
+            </button>
+        </nav>
+
+        <!-- Contenedor de Secciones del Menú -->
+        <div class="content-stage">
+
+            <!-- SECCIÓN 1: CENTRO DE MANDO (HOME) -->
+            <section id="tab-home" class="tab-panel active">
+                <div class="hero-banner">
+                    <div class="hero-badge">🎉 ¡NUEVA TEMPORADA DESBLOQUEADA! 🎉</div>
+                    <h1 class="hero-title">¡FELICES <span class="neon-accent">14 AÑOS</span>, <span class="brother-name-span">JUAN</span>!</h1>
+                    <p class="hero-lead">
+                        Bienvenido a tu menú interactivo de cumpleaños. Explora cada misión abajo para desbloquear todos los logros que preparé para ti.
+                    </p>
+
+                    <div class="quick-grid">
+                        <div class="interactive-tile" data-goto="tab-letter">
+                            <div class="tile-top">
+                                <span class="tile-emoji">💌</span>
+                                <span class="tile-tag">MISIÓN #1</span>
+                            </div>
+                            <h3>Carta del Hermano Mayor</h3>
+                            <p>Un mensaje directo para ti en este nuevo nivel de tu vida.</p>
+                            <span class="tile-cta">Abrir mensaje ➔</span>
+                        </div>
+
+                        <div class="interactive-tile" data-goto="tab-stats">
+                            <div class="tile-top">
+                                <span class="tile-emoji">⚡</span>
+                                <span class="tile-tag">MISIÓN #2</span>
+                            </div>
+                            <h3>Tus Estadísticas a los 14</h3>
+                            <p>Mira cómo subieron tus atributos de nivel este año y activa el modo Overclock.</p>
+                            <span class="tile-cta">Ver atributos ➔</span>
+                        </div>
+
+                        <div class="interactive-tile" data-goto="tab-cake">
+                            <div class="tile-top">
+                                <span class="tile-emoji">🕯️</span>
+                                <span class="tile-tag">MISIÓN #3</span>
+                            </div>
+                            <h3>Apaga las 14 Velas</h3>
+                            <p>Usa tu micrófono para soplar de verdad o haz clic en cada vela para pedir tu deseo.</p>
+                            <span class="tile-cta">Ir al pastel ➔</span>
+                        </div>
+
+                        <div class="interactive-tile" data-goto="tab-vault">
+                            <div class="tile-top">
+                                <span class="tile-emoji">🔐</span>
+                                <span class="tile-tag">MISIÓN FINAL</span>
+                            </div>
+                            <h3>Cofre Legendario</h3>
+                            <p>Rompe el candado de 14 impactos para reclamar tu recompensa real.</p>
+                            <span class="tile-cta">Desbloquear cofre ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="life-counter-box">
+                        <h4>⏱️ TIEMPO SIENDO ÉPICO EN ESTE PLANETA:</h4>
+                        <div class="counter-grid">
+                            <div class="counter-item">
+                                <span class="counter-val">14</span>
+                                <span class="counter-lbl">AÑOS</span>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-val">168</span>
+                                <span class="counter-lbl">MESES</span>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-val">5,113</span>
+                                <span class="counter-lbl">DÍAS</span>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-val" id="live-seconds">122,712,000</span>
+                                <span class="counter-lbl">SEGUNDOS DE LEYENDA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: CARTA DEL HERMANO MAYOR -->
+            <section id="tab-letter" class="tab-panel">
+                <div class="panel-card letter-card">
+                    <div class="letter-header">
+                        <div>
+                            <span class="classified-tag">TRANSMISIÓN DIRECTA // DE: TU HERMANO MAYOR</span>
+                            <h2>Para mi hermano en sus 14 años</h2>
+                        </div>
+                        <button id="replay-letter-btn" class="mini-cyber-btn">🔄 Repetir animación</button>
+                    </div>
+                    <div class="typewriter-container">
+                        <p id="typewriter-text" class="typewriter-text"></p>
+                        <span class="cursor-blink">|</span>
+                    </div>
+                    <div class="letter-footer">
+                        <button id="respect-btn" class="cyber-btn small-btn">
+                            🤜🤛 Chocar Puños con tu Hermano (+500 XP)
+                        </button>
+                        <span id="fistbump-count" class="fistbump-counter">¡Lista la hermandad!</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: ESTADÍSTICAS NIVEL 14 -->
+            <section id="tab-stats" class="tab-panel">
+                <div class="panel-card">
+                    <div class="stats-header">
+                        <div>
+                            <span class="classified-tag">ESCÁNER BIOMÉTRICO // ACTUALIZACIÓN 14.0</span>
+                            <h2>Atributos del Jugador: <span class="brother-name-span">JUAN</span></h2>
+                        </div>
+                        <button id="overclock-btn" class="cyber-btn small-btn">
+                            🔥 ACTIVAR MODO DIOS (OVERCLOCK)
+                        </button>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>⚽ Jugabilidad y Magia en el Fútbol</span>
+                                <span class="stat-percent" data-base="100%">100%</span>
+                            </div>
+                            <div class="stat-track">
+                                <div class="stat-fill" data-width="100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>🎮 Habilidad Gamer & Reflejos Pro</span>
+                                <span class="stat-percent" data-base="99%">99%</span>
+                            </div>
+                            <div class="stat-track">
+                                <div class="stat-fill" data-width="99%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>👟 Regate, Definición y Visión de Cancha</span>
+                                <span class="stat-percent" data-base="98%">98%</span>
+                            </div>
+                            <div class="stat-track">
+                                <div class="stat-fill" data-width="98%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>😎 Carisma y Mentalidad de Campeón</span>
+                                <span class="stat-percent" data-base="97%">97%</span>
+                            </div>
+                            <div class="stat-track">
+                                <div class="stat-fill" data-width="97%"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>🛡️ Lealtad de Hermano</span>
+                                <span class="stat-percent" data-base="∞ INFINITO">∞ INFINITO</span>
+                            </div>
+                            <div class="stat-track">
+                                <div class="stat-fill rainbow-fill" data-width="100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="perks-section">
+                        <h3>✨ NUEVAS HABILIDADES DESBLOQUEADAS A LOS 14:</h3>
+                        <div class="perks-badges">
+                            <div class="perk-chip">⚽ +99 Puntería al Ángulo</div>
+                            <div class="perk-chip">🎮 +100 Reflejos de Pro Player</div>
+                            <div class="perk-chip">🏆 Modo Champions Activado</div>
+                            <div class="perk-chip">👑 Respeto del Hermano Mayor</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: PASTEL INTERACTIVO DE 14 VELAS -->
+            <section id="tab-cake" class="tab-panel">
+                <div class="panel-card cake-card">
+                    <span class="classified-tag">RITUAL DE CUMPLEAÑOS // 14 VELAS</span>
+                    <h2>¡Pide un deseo y apaga las 14 velas!</h2>
+                    <p class="cake-instructions">
+                        Haz <strong>clic en cada vela</strong> para apagarlas una por una, o activa el <strong>Micrófono</strong> y sopla de verdad frente a la pantalla.
+                    </p>
+
+                    <div class="cake-controls">
+                        <button id="mic-blow-btn" class="mini-cyber-btn">🎤 Activar Micrófono para Soplar</button>
+                        <button id="relight-btn" class="mini-cyber-btn">🔥 Volver a encender todas</button>
+                        <span id="candles-counter" class="candles-status">Velas encendidas: 14 / 14</span>
+                    </div>
+
+                    <div id="wish-banner" class="wish-banner hidden">
+                        ✨ ¡DESEO ENVIADO AL UNIVERSO! ¡FELICES 14 AÑOS! ✨
+                    </div>
+
+                    <!-- Escenario del Pastel -->
+                    <div class="cake-stage">
+                        <div id="candles-row" class="candles-row">
+                            <!-- Generado dinámicamente por JS: 14 velas interactivas -->
+                        </div>
+                        <div class="cake-body">
+                            <div class="cake-top-icing"></div>
+                            <div class="cake-layer layer-top">
+                                <span class="cake-number-badge">14</span>
+                            </div>
+                            <div class="cake-layer layer-bottom"></div>
+                            <div class="cake-plate"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: MINI-JUEGO ARCADE -->
+            <section id="tab-arcade" class="tab-panel">
+                <div class="panel-card arcade-card">
+                    <div class="arcade-header">
+                        <div>
+                            <span class="classified-tag">SIMULADOR ARCADE // FÚTBOL & GAMING NIVEL 14</span>
+                            <h2>Desafío Crack: Fútbol & Gamer 14</h2>
+                        </div>
+                        <div class="arcade-scoreboard">
+                            <div class="score-pill">PUNTOS: <span id="game-score">0</span> / 140</div>
+                            <div class="score-pill">RÉCORD: <span id="game-high-score">0</span></div>
+                        </div>
+                    </div>
+                    <p class="arcade-instructions">
+                        Mueve el mouse (o el dedo) para atrapar ⚽ balones (+15 pts), 🎮 controles (+15 pts) y 🏆 trofeos (+25 pts). ¡Esquiva las 🟥 tarjetas rojas y 💣 bombas para llegar a <strong>140 puntos</strong>!
+                    </p>
+                    <div class="canvas-wrapper">
+                        <canvas id="arcade-canvas" width="700" height="340"></canvas>
+                        <div id="arcade-overlay" class="arcade-overlay">
+                            <h3 id="arcade-status-title">¿LISTO PARA EL DESAFÍO NIVEL 14?</h3>
+                            <p id="arcade-status-desc">Demuestra tus reflejos de 14 años</p>
+                            <button id="start-game-btn" class="cyber-btn small-btn">🕹️ JUGAR AHORA</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: COFRE SECRETO (LOOT BOX) -->
+            <section id="tab-vault" class="tab-panel">
+                <div class="panel-card vault-card">
+                    <span class="classified-tag">BÓVEDA DE RECOMPENSA // RAREZA: MÍTICA</span>
+                    <h2>Cofre Legendario de los 14 Años</h2>
+                    <p id="vault-instruction" class="vault-instruction">
+                        El cofre tiene un escudo de energía de <strong>14 impactos</strong>. ¡Haz clic 14 veces seguidas sobre el cofre para romper el sello!
+                    </p>
+
+                    <div class="vault-stage">
+                        <div id="loot-chest" class="loot-chest" role="button" tabindex="0">
+                            <div class="chest-glow"></div>
+                            <div id="chest-emoji" class="chest-emoji">📦</div>
+                            <div class="chest-hit-counter">SELLOS RESTANTES: <span id="hits-left">14</span></div>
+                        </div>
+
+                        <div class="shield-bar-wrap">
+                            <div id="shield-bar" class="shield-bar"></div>
+                        </div>
+
+                        <!-- Cupón / Recompensa revelada al abrir el cofre -->
+                        <div id="reward-reveal" class="reward-reveal hidden">
+                            <div class="reward-badge">🌟 OBJETO MÍTICO OBTENIDO 🌟</div>
+                            <h3>CUPÓN OFICIAL DE TU HERMANO MAYOR</h3>
+                            <p class="reward-text" id="reward-custom-text">
+                                ¡Vale por una salida épica de hermanos, tu comida favorita y tu regalo especial de 14 años!
+                            </p>
+                            <div class="reward-code">CÓDIGO DE CANJE: #HERMANO-LVL-14-VIP</div>
+                            <button id="claim-celebration-btn" class="cyber-btn small-btn">
+                                🎆 ¡CELEBRAR CON EXPLOSIÓN DE CONFETI!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="int.js"></script>
+</body>
+</html>
